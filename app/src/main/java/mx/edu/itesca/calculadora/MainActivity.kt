@@ -129,7 +129,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun validarOperacion(operacion:TextView,numero:TextView,signo:String):Double{
-        var resultadoOperacion=numero.text.toString().toDouble()
+        var resultadoOperacion=0.0
+        if (!operacion.text.isNullOrEmpty()){
+            resultadoOperacion=operacion.text.toString().toDouble()
+        }else{
+            resultadoOperacion=numero.text.toString().toDouble()
+        }
+
         operacion.setText(operacion.text.toString()+numero.text.toString()+signo)
         numero.setText("0");
         return resultadoOperacion;
